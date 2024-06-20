@@ -1,0 +1,14 @@
+SET standard_conforming_strings = ON;
+DROP TABLE IF EXISTS "public"."mancha de inundação do rs (2,73m lagoa dos patos)" CASCADE;
+BEGIN;
+CREATE TABLE "public"."mancha de inundação do rs (2,73m lagoa dos patos)"();
+ALTER TABLE "public"."mancha de inundação do rs (2,73m lagoa dos patos)" ADD COLUMN "ogc_fid" SERIAL CONSTRAINT "mancha de inundação do rs (2,73m lagoa dos patos)_pk" PRIMARY KEY;
+SELECT AddGeometryColumn('public','mancha de inundação do rs (2,73m lagoa dos patos)','wkb_geometry',4326,'POLYGON',2);
+COMMENT ON TABLE "public"."mancha de inundação do rs (2,73m lagoa dos patos)" IS NULL;
+ALTER TABLE "public"."mancha de inundação do rs (2,73m lagoa dos patos)" ADD COLUMN "count" NUMERIC(18,11);
+ALTER TABLE "public"."mancha de inundação do rs (2,73m lagoa dos patos)" ADD COLUMN "dn" NUMERIC(10,0);
+ALTER TABLE "public"."mancha de inundação do rs (2,73m lagoa dos patos)" ADD COLUMN "area_km2" NUMERIC(18,11);
+ALTER TABLE "public"."mancha de inundação do rs (2,73m lagoa dos patos)" ADD COLUMN "shape_leng" NUMERIC(18,11);
+ALTER TABLE "public"."mancha de inundação do rs (2,73m lagoa dos patos)" ADD COLUMN "shape_area" NUMERIC(18,11);
+CREATE INDEX "mancha de inundação do rs (2,73m lagoa _wkb_geometry_geom_idx" ON "public"."mancha de inundação do rs (2,73m lagoa dos patos)" USING GIST ("wkb_geometry");
+COMMIT;
